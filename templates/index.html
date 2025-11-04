@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest BBC News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 30px;
+        }
+        .headline {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .btn-refresh {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Latest BBC News Headlines</h1>
+
+    {% if headlines %}
+        <div class="list-group">
+            {% for headline in headlines %}
+                <a href="#" class="list-group-item list-group-item-action">
+                    {{ headline }}
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No headlines found. Please try again later.</p>
+    {% endif %}
+
+    <button class="btn btn-primary btn-refresh" onclick="window.location.reload();">Refresh Headlines</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
